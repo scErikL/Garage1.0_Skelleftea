@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace GarageV1._0Skelleftea
 {
-
+    //class Garage<T> where T : Vehicle
+   
     class Garage<T> : IEnumerable<T> where T : Vehicle
     {
         List<T> vehicles = new List<T>();
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < vehicles.Count; i++)
-                yield return vehicles[i];
+            //for (int i = 0; i < vehicles.Count; i++)
+            foreach (T v in vehicles) yield return v; 
+            //yield return vehicles[i];
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

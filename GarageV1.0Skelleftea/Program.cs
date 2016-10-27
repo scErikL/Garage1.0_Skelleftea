@@ -68,6 +68,10 @@ namespace GarageV1._0Skelleftea
         static void Main(string[] args)
         {
 
+            Test<Vehicle> t = new Test<Vehicle>();
+            foreach (Vehicle v in t) 
+                Console.WriteLine(v.Color);
+
             Garage<Vehicle> garage = new Garage<Vehicle>();
 
             //Object sender;
@@ -130,6 +134,21 @@ namespace GarageV1._0Skelleftea
                     Print(garage);
                     break;
                 case 4:
+                  /*  var query = from g in garage
+                                group g by garage.GetType() into lettergroup
+                                orderby lettergroup.Key ascending
+                                select lettergroup;*/
+                    var query = from g in garage
+                                group g by g.GetType();
+
+                    foreach (var group in query)
+                    {
+                        Console.WriteLine(group.Key.ToString().Substring(22) +" Antal: "+ group.Count());
+                        //foreach(var vehicle in group) Console.WriteLine(vehicle.ToString());
+
+                    }
+                        
+                    /*
                     string[] vehicleTypes = { "Airplane", "Motorcycle", "Car", "Bus", "Boat" };
                     int listSize = vehicleTypes.Length;
                     int[] countArray = new int[listSize];
@@ -143,7 +162,7 @@ namespace GarageV1._0Skelleftea
                         Console.Clear();
                         for (int i = 0; i < listSize; i++)
                         Console.WriteLine(vehicleTypes[i] + "   antal: " + countArray[i]);
-
+                    */
                     Console.ReadKey();
 
                     break;
