@@ -8,6 +8,8 @@ namespace GarageV1._0Skelleftea
 {
     class Program
     {
+
+        //EN ny kommentar
     #region Trap application termination
         /*
         [System.Runtime.InteropServices.DllImport("Kernel32")]§
